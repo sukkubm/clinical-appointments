@@ -92,4 +92,4 @@ The `--reload` flag will detect file changes and restart the server automaticall
     - Generate new JWT token if expired using above credentials 
     - send a `DELETE` request to https://udacitycapestonesukku.herokuapp.com/truncate using the JWT token (This step clears the database for the tests)
     - Right-clicking the collection folder for Doctor and Patient, navigate to the authorization tab, and include the JWT in the token field
-    - Run the collection
+    - Run the postman collection
