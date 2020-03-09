@@ -1,0 +1,1219 @@
+{
+	"info": {
+		"_postman_id": "f9705f0d-83ca-42c7-a20e-a0923d5fd53b",
+		"name": "clinical-appointments(capstone)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Doctor",
+			"item": [
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/doctors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "35be1ed3-3dd2-44e4-966b-145a85eabeb0",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains created data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('created');",
+									"});",
+									"",
+									"pm.test(\"value contains doctor array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.doctor).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"first_name\": \"Will\",\r\n                \"last_name\": \"Smith\",\r\n                \"address\": \"113, Josh street\",\r\n                \"city\": \"Sydney\",\r\n                \"state\": \"NSW\",\r\n                \"phone_no\": \"0435627165\",\r\n                \"degree\": \"BDS\",\r\n                \"speciality\": \"Dentist\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/doctors",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/patients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "956a3dc5-ba74-4495-b08e-bfeac0370c00",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains created data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('created');",
+									"});",
+									"",
+									"pm.test(\"value contains patient array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.patient).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\" : \"Mmnghagg\",\n\t\"last_name\" : \"Welsler\",\n\t\"city\" : \"Chennai\",\n\t\"state\" : \"Tamilnadu\",\n\t\"phone_no\" : \"0884747474\",\n\t\"address\" : \"India\",\n\t\"date_of_birth\" : \"2999-01-03\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/patients",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/appointments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e227ad9f-3b0f-46fe-b810-b422ec29193d",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains created data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('created');",
+									"});",
+									"",
+									"pm.test(\"value contains appointment array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.appointment).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"doctor_id\" : 1,\n\t\"patient_id\" : 1,\n\t\"start_time\" : \"2020-03-10 19:15:48\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/appointments",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/doctors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "e075e4b3-ba6a-475a-9241-b57899994a30",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains doctors array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.doctors).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/doctors",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/doctors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "46b11c01-e3e0-4bac-ab3e-dcc837605362",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains doctor array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.doctor).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/doctors/1",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"doctors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/patients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "099d9cac-42ed-449d-a9d4-da659d723b92",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains patients array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.patients).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/patients",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/patients/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1d351478-e289-4ddb-be04-b810da15694c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains patient array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.patient).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/patients/1",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"patients",
+								"1"								
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/appointments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b353b1be-8e94-474b-a26e-d71a0325bacd",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains appointments array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.appointments).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/appointments",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/appointments/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "947047cf-41ab-4700-9e97-fc5f0e0345c4",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains appointment array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.appointment).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/appointments/1",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"appointments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/patients/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1e6db784-0639-4fea-9572-7f1b87ffa98a",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains patient array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.patient).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"first_name\" : \"Mmnghagg\",\r\n\t\"last_name\" : \"kkkk\",\r\n\t\"city\" : \"Pondicherry\",\r\n\t\"state\" : \"Tamilnadu\",\r\n\t\"phone_no\" : \"0884746677\",\r\n\t\"address\" : \"India\",\r\n\t\"date_of_birth\" : \"2999-01-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/patients/1",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"patients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/appointments/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "4daf1726-0384-4dfe-8fb9-8a4eb1a61988",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains appointment array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.appointment).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"doctor_id\" : 1,\n\t\"patient_id\" : 1,\n\t\"start_time\" : \"2020-03-10 19:15:48\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/appointments/1",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"appointments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/patients/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ed4a4b8f-3141-4451-afc0-76b1bb823517",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains deleted data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('deleted');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/patients/1",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"patients",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5FWXdNRVpHUWpJMk0wRXhPRUU0UkRBMFJUQXpSRVE1UmpWRVF6TXhSa1JDTjBJMk9VUXdRUSJ9.eyJpc3MiOiJodHRwczovL3N1a2t1LmF1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTRiYjQ2M2JiMzNhMjBlN2RiMzJkZDQiLCJhdWQiOiJjbGluaWNhbF9hcHBvaW50bWVudHMiLCJpYXQiOjE1ODM2NTU5ODgsImV4cCI6MTU4MzY2MzE4OCwiYXpwIjoiOFMzdWQxSjM3NmNZNkVzUTJBRkxzcENpVmF6S0VqZWciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImRlbGV0ZTpwYXRpZW50cyIsImdldDphcHBvaW50bWVudHMiLCJnZXQ6ZG9jdG9ycyIsImdldDpwYXRpZW50cyIsInBhdGNoOmFwcG9pbnRtZW50cyIsInBhdGNoOnBhdGllbnRzIiwicG9zdDphcHBvaW50bWVudHMiLCJwb3N0OmRvY3RvcnMiLCJwb3N0OnBhdGllbnRzIl19.TlrtP2ReFDoSPp74JGCG2nBb8Qvt4Ik9VoZ5gxVxYVUZlw0nn-rn0KMRO82SWjMu1T2_tTN5IowmDveDnRz0QVxLUCXbV0Gzsy3RMCHEhtLqgn86Of5qIjSvA2coQqHSnQ3Kq4YxU-kPBZXLpo_sMUWwcaAKU7EtyqepTHSG-l3qfaB-RvBa-6-BGtFQdfVvLv-KCGTG8m5Rsk5UI7_D722yHiuMsA_t-irnX4orSIEfPILl3I8RFiYHA_cGXEwRsPmEywUTZOcYJmV0_BWSElgBUG5iOOy7_M-nybC0feoVLUMqiQ07NS3SFv8jQcVWLITfi7SxqIdkJppJwW5CgA",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "aff2b1ba-52aa-4574-948a-09cbbf9396f9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "b5df5e7f-0edb-49d2-8f11-120c25fe2be7",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Patient",
+			"item": [
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/doctors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "7fb107f4-f459-421f-8aac-5c84428149ee",
+								"exec": [
+									"pm.test(\"Status code is 401\", function(){",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Message permission not found present\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql('Permission not found.');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\"first_name\": \"Will\",\r\n                \"last_name\": \"Smith\",\r\n                \"address\": \"113, Josh street\",\r\n                \"city\": \"Sydney\",\r\n                \"state\": \"NSW\",\r\n                \"phone_no\": \"0435627165\",\r\n                \"degree\": \"BDS\",\r\n                \"speciality\": \"Dentist\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/doctors",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/patients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6750e7c4-d6fc-46f2-bce3-ec73594f9d32",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains created data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('created');",
+									"});",
+									"",
+									"pm.test(\"value contains patient array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.patient).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"first_name\" : \"Mmnghagg\",\n\t\"last_name\" : \"Welsler\",\n\t\"city\" : \"Chennai\",\n\t\"state\" : \"Tamilnadu\",\n\t\"phone_no\" : \"0884747474\",\n\t\"address\" : \"India\",\n\t\"date_of_birth\" : \"2999-01-03\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/patients",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/appointments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "b6e705e9-3faf-45aa-99b8-65f2d193ed1c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains created data\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData).to.have.property('created');",
+									"});",
+									"",
+									"pm.test(\"value contains appointment array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.appointment).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"doctor_id\" : 1,\n\t\"patient_id\" : 2,\n\t\"start_time\" : \"2020-03-10 19:15:48\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/appointments",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/doctors",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f0584d1f-8fdc-474e-b9e3-ebff42cec1d5",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains doctors array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.doctors).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/doctors",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"doctors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/doctors/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "46b11c01-e3e0-4bac-ab3e-dcc837605362",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains doctor array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.doctor).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/doctors/1",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"doctors",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/patients",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6289315b-280e-4c94-a656-3f04da5c2cdf",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains patients array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.patients).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/patients",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"patients"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/patients/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1d351478-e289-4ddb-be04-b810da15694c",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains patient array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.patient).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/patients/2",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"patients",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/appointments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2745835e-a1ef-4929-a3bb-e67e5209dda2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains appointments array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.appointments).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/appointments",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"appointments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/appointments/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "d9c58445-ac00-41e8-b1d5-4688082292e2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains appointment array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.appointment).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/appointments/1",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"appointments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/appointments/1",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "83aa646e-fff5-4305-80ef-d6d1f8375ee1",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains appointment array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.appointment).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"start_time\": \"2020-03-10 19:15:48\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/appointments/1",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"appointments",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/patients/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f0a6e9f9-bebe-46e8-adac-5183862f7fd3",
+								"exec": [
+									"pm.test(\"Status code is 200\", function(){",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"value contains patient array\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.patient).to.be.an('array')",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"type": "text",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"first_name\" : \"Mmnghagg\",\r\n\t\"last_name\" : \"kkkk\",\r\n\t\"city\" : \"Pondicherry\",\r\n\t\"state\" : \"Tamilnadu\",\r\n\t\"phone_no\" : \"0884747347\",\r\n\t\"address\" : \"India\",\r\n\t\"date_of_birth\" : \"2999-01-03\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/patients/2",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"patients",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "https://udacitycapestonesukku.herokuapp.com/patients/2",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "17d27481-86c4-433c-ad4a-780f4a2041c4",
+								"exec": [
+									"pm.test(\"Status code is 401\", function(){",
+									"    pm.response.to.have.status(401);",
+									"});",
+									"",
+									"pm.test(\"Message permission not found present\", function () {",
+									"    var jsonData = pm.response.json();",
+									"    pm.expect(jsonData.message).to.eql('Permission not found.');",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://udacitycapestonesukku.herokuapp.com/patients/2",
+							"protocol": "https",
+							"host": [
+								"udacitycapestonesukku",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"patients",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5FWXdNRVpHUWpJMk0wRXhPRUU0UkRBMFJUQXpSRVE1UmpWRVF6TXhSa1JDTjBJMk9VUXdRUSJ9.eyJpc3MiOiJodHRwczovL3N1a2t1LmF1LmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1ZTRiYjNiZDk3ZmYwNTBlNTgwZmQxMTciLCJhdWQiOiJjbGluaWNhbF9hcHBvaW50bWVudHMiLCJpYXQiOjE1ODM2NTU5MjUsImV4cCI6MTU4MzY2MzEyNSwiYXpwIjoiOFMzdWQxSjM3NmNZNkVzUTJBRkxzcENpVmF6S0VqZWciLCJzY29wZSI6IiIsInBlcm1pc3Npb25zIjpbImdldDphcHBvaW50bWVudHMiLCJnZXQ6ZG9jdG9ycyIsImdldDpwYXRpZW50cyIsInBhdGNoOmFwcG9pbnRtZW50cyIsInBhdGNoOnBhdGllbnRzIiwicG9zdDphcHBvaW50bWVudHMiLCJwb3N0OnBhdGllbnRzIl19.ptDiojdf3BMxa0sNnTQqwjlUM5Sbc4a0UihLyFQ6SQ34CDPM_U1FKKCvYJDEX76d7qwEK5e-PptMYSGfRtRRWLgv2SbPBFfXxazgJokVYYsvEGJEq1boGlMBOKZ_qjVPIh1ZZN3zJrhHWWC_ucJeyy2IavHyQ1IppLeiFlBTI-a9ls7MSDBwaapF7vI3bSxLxJStom39su3l7-bb8c8a9N4LoAA4mDma5b-xyxAMuz8ZuTY0ozvOWnjWP_ai2nrNZvSvzDs_JEd1W5Xi7BC3FY_pFEqOgEXMFdWQ6IYgNeEJEQNDhWrDPZ6URwnpsDiDduEkY4yzdobovMkPPYNdqg",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "207df7e6-7168-4696-91e4-9551eca13037",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5cb980d2-6ada-4790-a1f2-eed5a2f359dc",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

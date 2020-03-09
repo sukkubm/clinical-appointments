@@ -1,0 +1,41 @@
+<!doctype html>
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <b>Use this Authorization Token to login to APIs :</b> 
+    <br>
+    <textarea readonly id="access_token" value="" style="width:500px; height:250px;"></textarea>
+    <br>
+    <b>Logout using this URL :</b> 
+    <div>
+        <a class="btn btn-primary btn-lg btn-logout btn-block" href="https://sukku.au.auth0.com/v2/logout">Logout</a>
+    </div>
+</body>
+<script>
+    function getQuerystringAccessToken(name)
+    {
+        // For example... passing a name parameter of "name1" will return a value of "100", etc.
+        // page.htm?name1=100&name2=101&name3=102
+
+        var winURL = window.location.href;
+        var queryStringArray = winURL.split("#");
+        var queryStringParamArray = queryStringArray[1].split("&");
+        var nameValue = null;
+
+        for ( var i=0; i<queryStringParamArray.length; i++ )
+        {           
+            queryStringNameValueArray = queryStringParamArray[i].split("=");
+
+            if ( name == queryStringNameValueArray[0] )
+            {
+                nameValue = queryStringNameValueArray[1];
+            }                       
+        }
+
+        return nameValue;
+    }
+    document.getElementById('access_token').value = getQuerystringAccessToken("access_token");
+    
+</script>
+</html>
